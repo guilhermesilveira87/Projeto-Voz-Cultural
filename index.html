@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Voz Cultural — Portal da cultura de Lambari. Explore eventos, artistas, mapas culturais e entre em contato com a Secretaria de Cultura.">
+  <meta name="keywords" content="Lambari, cultura, eventos, artistas, turismo, Minas Gerais">
+  <meta name="author" content="Secretaria de Cultura de Lambari">
+  <meta name="robots" content="index, follow">
+  <meta property="og:title" content="Voz Cultural | Lambari">
+  <meta property="og:description" content="Portal da cultura de Lambari">
+  <meta property="og:image" content="imagens/logo.jpg">
+
+  <title>Voz Cultural | Lambari</title>
+  <link rel="icon" type="image/png" href="imagens/logo.jpg">
+  <link rel="apple-touch-icon" sizes="180x180" href="imagens/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="imagens/favicon-32x32.png">
+
+  <!-- Fontes e ícones -->
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&family=Merriweather:wght@700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+  <!-- Estilo -->
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="shared-styles.css">
+  <style>
+    /* Removido estilos de dark mode */
+    .hero:hover {
+      background-position: center 20px;
+    }
+
+    .evento {
+      background: white;
+      padding: 15px;
+      border-radius: 8px;
+      box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+      transition: transform 0.3s;
+    }
+
+    .evento img {
+      width: 100%;
+      border-radius: 4px;
+      transition: transform 0.4s ease;
+    }
+
+    .evento img:hover {
+      transform: scale(1.05);
+    }
+
+    .section h3 {
+      color: var(--branco);
+      text-align: center;
+      margin-bottom: 30px;
+    }
+  </style>
+</head>
+
+<body>
+
+  <header>
+    <h1>
+      <img src="logo.jpg" alt="Prefeitura de Lambari" style="height:50px; vertical-align:middle;">
+      Voz Cultural
+    </h1>
+    <nav role="navigation" aria-label="Menu principal">
+      <a href="index.html"><i class="fa-solid fa-house"></i>Início</a>
+      <a href="artistas.html"><i class="fa-solid fa-users"></i>Artistas</a>
+      <a href="mapa.html"><i class="fa-solid fa-map-location-dot"></i>Mapa Cultural</a>
+      <a href="contato.html"><i class="fa-solid fa-envelope"></i>Contato</a>
+    </nav>
+  </header>
+
+  <main role="main">
+    <section class="hero" aria-label="Destaque">
+      <img class="hero-img" 
+           src="casino.png" 
+           alt="Cultura de Lambari"
+           loading="lazy"
+           width="1920"
+           height="1080"
+           style="width: 100vw; max-width: 100%; object-fit: cover;">
+      <div class="hero-overlay">
+        <h2>Descubra a cultura viva de Lambari</h2>
+        <p>Feiras, tradições e eventos que conectam nossa cidade e fortalecem nossa identidade.</p>
+      </section>
+
+      <section class="section" aria-label="Eventos">
+        <h3>Próximos Eventos</h3>
+        <div class="eventos">
+          <div class="evento">
+            <img src="festa de congada.jpeg" alt="2ª roda de Congo de Lambari">
+            <div class="evento-content">
+              <h4>2º roda de Congo de Lambari</h4>
+              <div class="evento-info">
+                <i class="far fa-calendar"></i>
+                <span>14 de setembro</span>
+              </div>
+              <div class="evento-info">
+                <i class="fas fa-map-marker-alt"></i>
+                <span>Coreto do Parque das Águas</span>
+              </div>
+              <p>A tradição segue viva! Desfile, música e celebração da cultura afro-brasileira.</p>
+            </div>
+          </div>
+          <div class="evento">
+            <img src="motofest.jpeg" alt="Lambari Moto Fest">
+            <div class="evento-content">
+              <h4>Lambari Moto Fest</h4>
+              <div class="evento-info">
+                <i class="far fa-calendar"></i>
+                <span>15 a 17 de agosto</span>
+              </div>
+              <div class="evento-info">
+                <i class="fas fa-map-marker-alt"></i>
+                <span>Cassino do Lago</span>
+              </div>
+              <p>Encontro de motociclistas com shows, gastronomia e solidariedade. Um dos maiores eventos da cidade!</p>
+            </div>
+          </div>
+          <div class="evento">
+            <img src="queima do alho.jpeg" alt="Queima do Alho de Lambari">
+            <div class="evento-content">
+              <h4>1ª Queima do Alho de Lambari</h4>
+              <div class="evento-info">
+                <i class="far fa-calendar"></i>
+                <span>14 de setembro</span>
+              </div>
+              <div class="evento-info">
+                <i class="fas fa-map-marker-alt"></i>
+                <span>Ao lado do Cassino</span>
+              </div>
+              <p>Música caipira, comida típica e tradição sertaneja mineira reunidas em uma grande festa.</p>
+            </div>
+          </div>
+        </div>
+
+        <div style="text-align:center; margin-top:40px;">
+          <a href="artistas.html" style="color:linear-gradient(90deg, #005a9c, #007dc5);; font-weight:600; text-decoration:none;">
+            👉 Conheça nossos artistas e grupos culturais
+          </a>
+        </div>
+      </section>
+    </main>
+
+  <footer>
+    <p>Prefeitura Municipal de Lambari - 2025 ©</p>
+    <div class="footer-links">
+      <a href="index.html">Início</a> |
+      <a href="artistas.html">Artistas
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
+
+
+

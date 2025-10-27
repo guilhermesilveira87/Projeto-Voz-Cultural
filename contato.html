@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Voz Cultural | Contato</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="shared-styles.css">
+  <style>
+    .contato-container {
+      max-width: 700px;
+      margin: 50px auto;
+      background: white;
+      padding: 40px;
+      border-radius: 12px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+    }
+
+    .contato-container h3 {
+      text-align: center;
+      color: var(--amarelo-escuro);
+      font-size: 1.8rem;
+      margin-bottom: 25px;
+    }
+
+    form {
+      display: flex;
+      flex-direction: column;
+      gap: 15px;
+    }
+
+    label {
+      font-weight: 600;
+      color: #333;
+    }
+
+    input, textarea {
+      padding: 12px;
+      border: 1px solid #ccc;
+      border-radius: 8px;
+      font-size: 1rem;
+      transition: border 0.2s;
+    }
+
+    input:focus, textarea:focus {
+      border-color: #1d976c;
+      outline: none;
+    }
+
+    textarea {
+      resize: vertical;
+      min-height: 120px;
+    }
+
+    button {
+      background: var(--amarelo-escuro);
+      color: var(--texto-escuro);
+      border: none;
+      border-radius: 8px;
+      padding: 12px;
+      font-size: 1rem;
+      cursor: pointer;
+      transition: background 0.3s;
+    }
+
+    button:hover {
+      background: var(--amarelo-claro);
+    }
+
+    .info-contato {
+      margin-top: 30px;
+      text-align: center;
+      color: #555;
+    }
+
+    .info-contato p {
+      margin: 6px 0;
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <h1>
+      <img src="logo.jpg" alt="Prefeitura de Lambari">
+      Voz Cultural
+    </h1>
+    <nav>
+      <a href="index.html">Início</a>
+      <a href="artistas.html">Artistas</a>
+      <a href="mapa.html">Mapa Cultural</a>
+      <a href="contato.html">Contato</a>
+    </nav>
+  </header>
+
+  <section class="hero">
+    <img class="hero-img" 
+         src="secretaria.png" 
+         alt="Contato Secretaria de Cultura"
+         style="width: 100vw; max-width: 100%; object-fit: cover;">
+    <div class="hero-overlay">
+        <h2>Entre em Contato</h2>
+        <p>Secretaria Municipal de Cultura de Lambari</p>
+    </div>
+</section>
+
+  <div class="contato-container">
+    <h3>Envie sua mensagem</h3>
+    <form id="form-contato">
+      <label for="nome">Nome:</label>
+      <input type="text" id="nome" name="nome" placeholder="Digite seu nome completo" required>
+
+      <label for="email">E-mail:</label>
+      <input type="email" id="email" name="email" placeholder="Digite seu e-mail" required>
+
+      <label for="assunto">Assunto:</label>
+      <input type="text" id="assunto" name="assunto" placeholder="Ex: Sugestão de evento, dúvida, parceria..." required>
+
+      <label for="mensagem">Mensagem:</label>
+      <textarea id="mensagem" name="mensagem" placeholder="Digite sua mensagem..." required></textarea>
+
+      <button type="submit">Enviar</button>
+    </form>
+
+    <div class="info-contato">
+      <h4>Secretaria Municipal de Cultura</h4>
+      <p>📍 Avenida Renato Nascimento, nº 1.015 – Centro, Lambari/MG</p>
+      <p>📞 (35) 3271-3602</p>
+      <p>✉️ cultura@lambari.mg.gov.br</p>
+      <p>⏰ Atendimento: Segunda a Sexta, das 8h às 17h</p>
+    </div>
+  </div>
+
+  <footer>
+    <p>Prefeitura Municipal de Lambari - 2025 ©</p>
+  </footer>
+
+  <script src="script.js"></script>
+  <script>
+    // Simulação de envio do formulário
+    document.getElementById('form-contato').addEventListener('submit', function(event) {
+      event.preventDefault();
+      alert('✅ Mensagem enviada com sucesso! Obrigado pelo contato.');
+      this.reset();
+    });
+  </script>
+
+</body>
+</html>

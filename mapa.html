@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Voz Cultural | Mapa Cultural</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&family=Merriweather:wght@700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="shared-styles.css">
+    <!-- Leaflet CSS -->
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css">
+    <style>
+        #map {
+            height: 500px;
+            width: 100%;
+            border-radius: 12px;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+        }
+
+        .map-container {
+            max-width: 1000px;
+            margin: 50px auto;
+            padding: 0 20px;
+        }
+
+        .map-container h3 {
+            text-align: center;
+            color: #1d976c;
+            font-size: 2rem;
+            margin-bottom: 20px;
+        }
+
+        .leaflet-popup-content {
+            font-family: 'Poppins', sans-serif;
+            text-align: center;
+            padding: 5px;
+        }
+
+        .leaflet-popup-content b {
+            color: #1d976c;
+            display: block;
+            margin-bottom: 5px;
+        }
+    </style>
+</head>
+<body>
+
+  <header>
+    <h1>
+      <img src="logo.jpg" alt="Prefeitura de Lambari">
+      Voz Cultural
+    </h1>
+    <nav>
+      <a href="index.html">Início</a>
+      <a href="artistas.html">Artistas</a>
+      <a href="mapa.html">Mapa Cultural</a>
+      <a href="contato.html">Contato</a>
+    </nav>
+  </header>
+
+  <section class="hero">
+    <img class="hero-img" 
+         src="garrafanova.png" 
+         alt="Mapa Cultural de Lambari"
+         style="width: 100vw; max-width: 100%; object-fit: cover;">
+    <div class="hero-overlay">
+        <h2>Mapa Cultural</h2>
+        <p>Explore os pontos culturais de nossa cidade</p>
+    </div>
+  </section>
+
+  <div class="map-container">
+    <h3>Pontos Culturais</h3>
+    <div id="map"></div>
+  </div>
+
+  <footer>
+    <p>Prefeitura Municipal de Lambari - 2025 ©</p>
+  </footer>
+
+  <!-- Leaflet JS (coloque antes do script do mapa) -->
+  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"
+    integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo="
+    crossorigin=""></script>
+
+  <!-- Script principal -->
+  <script src="script.js"></script>
+
+  <!-- Script específico do mapa -->
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+        // Inicializa o mapa
+        const map = L.map('map').setView([-21.972549, -45.349877], 15);
+
+        // Adiciona o layer do OpenStreetMap
+        L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+            maxZoom: 19,
+            attribution: '© OpenStreetMap contributors'
+        }).addTo(map);
+
+        // Pontos culturais de Lambari
+        const pontosCulturais = [
+            {
+                nome: "Garrafa",
+                coord: [-21.98927, -45.33939],
+                desc: "Monumento icônico na entrada da cidade - BR-460"
+            },
+            {
+                nome: "Cassino Antigo",
+                coord: [-21.97581, -45.34611],
+                desc: "Patrimônio histórico de 1911 - Atual Centro de Convenções"
+            },
+            {
+                nome: "Igreja Matriz",
+                coord: [-21.97590, -45.35033],
+                desc: "Igreja Nossa Senhora da Saúde - Centro"
+            },
+            {
+                nome: "Parque das Águas",
+                coord: [-21.97357, -45.35034],
+                desc: "Complexo com 9 fontes de águas minerais e área de lazer"
+            },
+            {
+                nome: "Parque Wenceslau Braz",
+                coord: [-21.97346, -45.34449],
+                desc: "Parque histórico com jardins e áreas para eventos culturais"
+            },
+            {
+                nome: "Ducha",
+                coord: [-21.97522, -45.34414],
+                desc: "Local onde as águas do lago Guanabara desaguam"
+            },
+            {
+                nome: "Lago Guanabara",
+                coord: [-21.98147, -45.34415],
+                desc: "Famoso lago da cidade, ponto de encontro e lazer"
+            },
+            {
+                nome: "Coreto",
+                coord: [-21.97421, -45.34989],
+                desc: "Coreto histórico dentro do Parque das Águas"
+            },
+            {
+                nome: "Parque Volta da Mata",
+                coord: [-21.98904, -45.34603],
+                desc: "Entrada do Parque Volta da Mata - Área de preservação ambiental"
+            },
+            {
+                nome: "Parque Estadual de Nova Baden",
+                coord: [-21.94348, -45.31702],
+                desc: "Entrada do Parque Estadual Nova Baden - Área de preservação ambiental"
+            },
+        ];
+
+        // Ícone personalizado para os marcadores
+        const culturalIcon = L.icon({
+            iconUrl: 'https://raw.githubusercontent.com/pointhi/leaflet-color-markers/master/img/marker-icon-2x-green.png',
+            iconSize: [25, 41],
+            iconAnchor: [12, 41],
+            popupAnchor: [1, -34]
+        });
+
+        // Adiciona os marcadores
+        pontosCulturais.forEach(ponto => {
+            L.marker(ponto.coord, {icon: culturalIcon})
+                .bindPopup(`
+                    <b>${ponto.nome}</b>
+                    <br>
+                    <p>${ponto.desc}</p>
+                `)
+                .addTo(map);
+        });
+
+        // Ajusta o zoom para mostrar todos os marcadores
+        const bounds = L.latLngBounds(pontosCulturais.map(p => p.coord));
+        map.fitBounds(bounds.pad(0.1));
+    });
+  </script>
+
+</body>
+</html>
